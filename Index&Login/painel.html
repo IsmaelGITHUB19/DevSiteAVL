@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <style>
+        .h-60 {
+           height: 60% !important;
+          }
+
+
+      .card-img-top {
+    /* ... seus comandos de largura e centralização ... */
+    width: 85%; 
+    display: block;
+    margin: 0 auto;
+    
+    /* COMANDO PARA LIMITAR A ALTURA EM PIXELS: */
+    max-height: 450px; /* Tente 450px, 400px ou 380px até ficar bom */
+}
+  </style>
+  
+  <body>
+    <!--Nav Bar -->
+        <ul class="nav justify-content-center" style="background-color: rgb(0, 0, 0); padding: 0.8%;">
+ <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="PagProduto/produto.php">Produtos</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="PagProduto/funcionarios.php">Funcionarios</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="PagProduto/cliente.php">Clientes</a>
+  </li>
+</ul>
+<!--Carrossel-->
+<div id="carouselExample" class="carousel slide" style="background-color: darkslategray; padding-top: 5%; padding-bottom: 5%;">
+  <div class="carousel-inner">
+    
+    <div class="carousel-item active">
+      <img src="Imgs/449.png" 
+           class="d-block w-50 mx-auto" alt="...">
+    </div>
+    
+    <div class="carousel-item">
+      <img src="Imgs/449.png" 
+           class="d-block w-50 mx-auto" alt="...">
+    </div>
+    
+    <div class="carousel-item">
+      <img src="Imgs/449.png" 
+           class="d-block w-50 mx-auto" alt="...">
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<!--Produtos Disponiveis-->
+
+<div class="row row-cols-1 row-cols-md-3 g-4" style="background-color: darkslategray; padding-top: 5%; padding-left: 5%; padding-right: 5%;">
+  <div class="col">
+    <div class="card h-100">
+      <img src="Imgs/Sócrates.jpg" 
+         class="card-img-top w-75 mx-auto d-block h-60" 
+         alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Apologia a Sócrates</h5>
+        <p class="card-text"> O resumo da obra descreve como Sócrates refuta as acusações, explicando que sua sabedoria reside em reconhecer sua própria ignorância, e defende a liberdade de pensamento, preferindo morrer a renunciar aos seus princípios</p>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="Imgs/Politica.jpg" 
+         class="card-img-top w-75 mx-auto d-block h-60" 
+         alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Política</h5>
+        <p class="card-text"> O livro "Política" de Aristóteles argumenta que o ser humano é um "animal político" por natureza e que a finalidade da política é buscar o bem comum e a felicidade coletiva, que por sua vez promovem a felicidade individual</p>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="Imgs/Retórica.jpg" 
+         class="card-img-top w-75 mx-auto d-block h-60" 
+         alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Retórica</h5>
+        <p class="card-text">A retórica de Aristóteles é a arte da persuasão, que divide os discursos em três gêneros principais: o jurídico (sobre o passado), o político (sobre o futuro) e o demonstrativo (sobre o presente).</p>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4" style="background-color: darkslategray; padding-top: 5%; padding-bottom: 10%; padding-left: 5%; padding-right: 5%;">
+  <div class="col">
+    <div class="card h-100">
+      <img src="Imgs/Sêneca.jpg" 
+         class="card-img-top w-75 mx-auto d-block h-60" 
+         alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Sobre a brevidade da vida</h5>
+        <p class="card-text">Para Sêneca, a vida é um caminho para a felicidade através da razão e da virtude, não se deixando levar por expectativas ou pela busca de bens externos</p>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+    <img src="Imgs/Maquiavel.jpg" 
+         class="card-img-top w-75 mx-auto d-block h-60" 
+         alt="...">
+      <div class="card-body">
+        <h5 class="card-title">O Príncipe</h5>
+        <p class="card-text">"O Príncipe" é um manual político de Nicolau Maquiavel sobre como conquistar e manter o poder, onde ele argumenta que a moralidade do governante deve ser separada da moralidade cristã tradicional.</p>
+      </div>
+      <div class="card-footer">
+         
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="Imgs/Metafísica.jpg" 
+         class="card-img-top w-75 mx-auto d-block h-60" 
+         alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Metafísica</h5>
+        <p class="card-text">A metafísica de Aristóteles, também chamada de "filosofia primeira", estuda o ser enquanto ser e suas causas primeiras. Ele se opõe a Platão ao focar em um único mundo, onde o conhecimento é encontrado nas essências das coisas, e não em um mundo de ideias separado.</p>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Footer-->
+<footer class="py-3 my-4">
+  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+  </ul>
+  <p class="text-center text-body-secondary">&copy; 2025 Company, Inc</p>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos (CRUD)</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        .area-produtos {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 20px;     
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            width: 300px;
+        }
+        .img-ajustada {
+            object-fit: contain;
+            max-height: 400px;
+            width: 90%; 
+            display: block;
+            margin: 10px auto; 
+        }
+        .botoes-crud {
+            display: flex;
+            justify-content: space-between; /* Espaçamento entre os botões */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center; margin-top: 30px;">Nossos Livros de Filosofia</h1>
+
+    <div class="text-center mb-4">
+        <a href="adicionar_cliente.html" class="btn btn-success btn-lg">
+            Cadastrar Cadastrar Cliente
+        </a>
+        <a href="../painel.html" class="btn btn-success btn-lg">
+            Voltar
+        </a>
+    </div>
+
+    <?php
+    // --- 1. CONEXÃO E CONFIGURAÇÃO ---
+    $conn = new mysqli("localhost", "root", "", "sitedb");
+    
+    if ($conn->connect_error) {
+        die("Erro interno. Tente novamente mais tarde."); 
+    }
+
+    $sql = "SELECT ID, NOME, CPF, EMAIL FROM CLIENTE ";
+    $resultado = $conn->query($sql);
+
+  echo '<ul class="list-group">';
+
+// 2. Você inicia o loop para ler cada linha e exibir:
+if ( $resultado->num_rows > 0) {
+    while ($linha = $resultado->fetch_assoc()) {
+   echo '<li class="list-group-item">';
+        echo "Id: " . $linha['ID'] .
+            " | Nome: " . $linha['NOME'] . 
+             " | Cpf: " . $linha['CPF'] . 
+             " | Email: " . $linha['EMAIL'] ;
+
+        // Formulário de edição
+        echo '<form method="POST" action="Editar/editar_funcionario.php" style="display:inline;">';
+        echo '<input type="hidden" name="id" value="' . $linha['ID'] . '">';
+        echo '<input type="submit" value="Editar" class="btn btn-primary btn-sm">';
+        echo '</form>';
+
+        // Formulário de exclusão
+        echo '<form method="POST" action="Delete/delete_banco_cliente.php" style="display:inline;">';
+        echo '<input type="hidden" name="id" value="' . $linha['ID'] . '">';
+        echo '<input type="submit" value="Excluir" class="btn btn-danger btn-sm">';
+        echo '</form>';
+
+        echo '</li>';
+    }
+} else {
+    echo '<li class="list-group-item">Nenhum funcionário encontrado.</li>';
+}
+
+
+// FECHA A TAG </ul> FORA DO LOOP
+echo '</ul>';
+
+$conn->close();
+
+    ?>
+
+</body>
+</html>
+
+
+
+
+
+
+
