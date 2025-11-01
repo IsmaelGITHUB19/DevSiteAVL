@@ -69,7 +69,7 @@ VALUES
 ('Camila Ribeiro Costa', '741.852.963-77', 'camila.costa@email.com'),
 ('Bruno Almeida Torres', '852.741.963-88', 'bruno.torres@email.com');
 
-*/ 
+
 
 INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO) 
 VALUES ('Felipe Marcelo', '07575490981', 'MarceloProfessor@hotmail.com', 'Desenvolvedor', 'Rua da UTFPR');
@@ -120,3 +120,14 @@ INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO)
 VALUES ('Fernanda Oliveira Lima', '25487963107', 'fernanda.lima@hotmail.com', 'Suporte Técnico', 'Av. Toledo, 302');
 INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
 VALUES (MD5('2025'), LAST_INSERT_ID());
+*/ 
+
+INSERT INTO VENDA (PAGAMENTO, PRODUTO_CODIGO, CLIENTE_ID)
+VALUES
+('Pix',555, 3),
+('Cartão - Crédito',332394,4),
+('Pix',9888, 5),
+('Boleto', 26524,6 ),
+('Cartão - Crédito', 45324,7),
+('Pix',78865, 8);
+

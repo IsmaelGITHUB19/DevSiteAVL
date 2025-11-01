@@ -32,16 +32,13 @@
 </head>
 <body>
 
-    <h1 style="text-align: center; margin-top: 30px;">Nossos Livros de Filosofia</h1>
+    <h1 style="text-align: center; margin-top: 30px;">Histórico de vendas</h1>
 
     <div class="text-center mb-4">
-        <a href="adicionar_produto.html" class="btn btn-success btn-lg">
-            Adicionar Novo Produto
+        <a href="adicionar_venda.html" class="btn btn-success btn-lg">
+            Vender
         </a>
-        <a href="vendas.php" class="btn btn-success btn-lg">
-            Vendas
-        </a>
-        <a href="../painel.html" class="btn btn-success btn-lg">
+        <a href="produto.php" class="btn btn-success btn-lg">
             Voltar
         </a>
     </div>
@@ -54,40 +51,54 @@
         die("Erro interno. Tente novamente mais tarde."); 
     }
 
-    $sql = "SELECT CODIGO, DESCRICAO, VALOR FROM PRODUTO ORDER BY DESCRICAO";
-    $resultado = $conn->query($sql);
+ $sql = "SELECT 
+    v.ID AS VENDA_ID,
+    v.PAGAMENTO,
+    p.DESCRICAO AS PRODUTO_DESCRICAO,
+    p.CODIGO AS PRODUTO_CODIGO,
+    p.VALOR AS PRODUTO_VALOR,
+    c.NOME AS CLIENTE_NOME,
+    c.ID AS CLIENTE_ID
+FROM VENDA v
+JOIN PRODUTO p ON v.PRODUTO_CODIGO = p.CODIGO
+JOIN CLIENTE c ON v.CLIENTE_ID = c.ID"; // sem ; aqui
 
-  echo '<ul class="list-group">';
+$resultado = $conn->query($sql);
 
-// 2. Você inicia o loop para ler cada linha e exibir:
-if ( $resultado->num_rows > 0) {
+if (!$resultado) {
+    die("Erro na query: " . $conn->error);
+}
+
+echo '<ul class="list-group">';
+
+if ($resultado->num_rows > 0) {
     while ($linha = $resultado->fetch_assoc()) {
-   echo '<li class="list-group-item">';
-        echo "Código: " . $linha['CODIGO'] . 
-             " | Descrição: " . $linha['DESCRICAO'] . 
-             " | Valor: " . $linha['VALOR'];
-
-        // Formulário de edição
+        echo '<li class="list-group-item">';
+        echo "Venda ID: " . $linha['VENDA_ID'] . 
+             " | Pagamento: " . $linha['PAGAMENTO'] .
+             " | Produto: " . $linha['PRODUTO_DESCRICAO'] . " (Código: " . $linha['PRODUTO_CODIGO'] . ", Valor: " . $linha['PRODUTO_VALOR'] . ")" .
+             " | Cliente: " . $linha['CLIENTE_NOME'] . " (ID: " . $linha['CLIENTE_ID'] . ")";
+           // Formulário de edição
         echo '<form method="POST" action="Editar/editar_produto.php" style="display:inline;">';
-        echo '<input type="hidden" name="codigo" value="' . $linha['CODIGO'] . '">';
+        echo '<input type="hidden" name="venda_id" value="' . $linha['VENDA_ID'] . '">';
         echo '<input type="submit" value="Editar" class="btn btn-primary btn-sm">';
         echo '</form>';
 
         // Formulário de exclusão
         echo '<form method="POST" action="Delete/delete_banco.php" style="display:inline;">';
-        echo '<input type="hidden" name="codigo" value="' . $linha['CODIGO'] . '">';
+        echo '<input type="hidden" name="venda_id" value="' . $linha['VENDA_ID'] . '">';
         echo '<input type="submit" value="Excluir" class="btn btn-danger btn-sm">';
         echo '</form>';
 
         echo '</li>';
+
     }
 } else {
-    echo '<li class="list-group-item">Nenhum funcionário encontrado.</li>';
+    echo '<li class="list-group-item">Nenhuma venda encontrada.</li>';
 }
 
-
-// FECHA A TAG </ul> FORA DO LOOP
 echo '</ul>';
+
 
 $conn->close();
 
