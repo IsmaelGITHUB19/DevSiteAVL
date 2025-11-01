@@ -40,10 +40,6 @@ CREATE TABLE IF NOT EXISTS VENDA (
 );
 
 /*
-INSERT INTO FUNCIONARIO(NOME, CPF, EMAIL,CARGO,ENDERECO) 
-VALUES ('Marcelo','03302276521','MarceloProfessor@hotmail.com','Professor/Editor','UTFPRTD');
-INSERT INTO USUARIO(SENHA,FUNCIONARIO_ID) 
-VALUES (MD5('2025'),LAST_INSERT_ID());
 
 INSERT INTO PRODUTO(CODIGO, DESCRICAO, VALOR )
 VALUES('47221','Política - Aristóteles', ' 50,99');
@@ -57,5 +53,70 @@ INSERT INTO PRODUTO (CODIGO, DESCRICAO, VALOR)
 VALUES ('78865', 'O Príncipe - Maquiavel', '33.54');
 INSERT INTO PRODUTO (CODIGO, DESCRICAO, VALOR)
 VALUES ('04303', 'Metafísica - Aristóteles', '45.32');
+
+
+
+INSERT INTO CLIENTE (nome, cpf, email)
+VALUES
+('Maria Fernanda Oliveira', '123.456.789-00', 'maria.oliveira@email.com'),
+('João Pedro Silva', '987.654.321-00', 'joao.silva@email.com'),
+('Ana Beatriz Souza', '456.789.123-11', 'ana.souza@email.com'),
+('Carlos Eduardo Lima', '321.654.987-22', 'carlos.lima@email.com'),
+('Fernanda Alves Rocha', '159.753.486-33', 'fernanda.rocha@email.com'),
+('Lucas Henrique Martins', '753.951.852-44', 'lucas.martins@email.com'),
+('Juliana Castro Pereira', '258.369.147-55', 'juliana.pereira@email.com'),
+('Rafael Nogueira Santos', '369.258.147-66', 'rafael.santos@email.com'),
+('Camila Ribeiro Costa', '741.852.963-77', 'camila.costa@email.com'),
+('Bruno Almeida Torres', '852.741.963-88', 'bruno.torres@email.com');
+
 */ 
 
+INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO) 
+VALUES ('Felipe Marcelo', '07575490981', 'MarceloProfessor@hotmail.com', 'Desenvolvedor', 'Rua da UTFPR');
+INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
+VALUES (MD5('2025'), LAST_INSERT_ID());
+
+INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO) 
+VALUES ('Ana Beatriz Souza', '21458930762', 'ana.souza@gmail.com', 'Analista de Sistemas', 'Rua das Acácias, 120');
+INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
+VALUES (MD5('2025'), LAST_INSERT_ID());
+
+INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO) 
+VALUES ('João Pedro Lima', '35974128650', 'joao.lima@outlook.com', 'Técnico de Informática', 'Av. Brasil, 405');
+INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
+VALUES (MD5('2025'), LAST_INSERT_ID());
+
+INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO) 
+VALUES ('Camila Ribeiro Costa', '48795231608', 'camila.costa@gmail.com', 'Designer UX/UI', 'Rua Curitiba, 89');
+INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
+VALUES (MD5('2025'), LAST_INSERT_ID());
+
+INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO) 
+VALUES ('Rafael Nogueira Santos', '52687419307', 'rafael.santos@empresa.com', 'Gerente de Projetos', 'Rua das Flores, 512');
+INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
+VALUES (MD5('2025'), LAST_INSERT_ID());
+
+INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO) 
+VALUES ('Mariana Alves Rocha', '69321547890', 'mariana.rocha@hotmail.com', 'Desenvolvedora Front-End', 'Rua Paraná, 220');
+INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
+VALUES (MD5('2025'), LAST_INSERT_ID());
+
+INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO) 
+VALUES ('Carlos Eduardo Martins', '84561970325', 'carlos.martins@gmail.com', 'Administrador de Redes', 'Rua dos Ipês, 75');
+INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
+VALUES (MD5('2025'), LAST_INSERT_ID());
+
+INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO) 
+VALUES ('Juliana Castro Pereira', '97842615304', 'juliana.pereira@outlook.com', 'Analista de Banco de Dados', 'Rua Dom Pedro II, 318');
+INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
+VALUES (MD5('2025'), LAST_INSERT_ID());
+
+INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO) 
+VALUES ('Lucas Henrique Torres', '13254789066', 'lucas.torres@gmail.com', 'Desenvolvedor Back-End', 'Rua São Paulo, 104');
+INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
+VALUES (MD5('2025'), LAST_INSERT_ID());
+
+INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO) 
+VALUES ('Fernanda Oliveira Lima', '25487963107', 'fernanda.lima@hotmail.com', 'Suporte Técnico', 'Av. Toledo, 302');
+INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
+VALUES (MD5('2025'), LAST_INSERT_ID());
