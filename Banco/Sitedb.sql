@@ -120,7 +120,7 @@ INSERT INTO FUNCIONARIO (NOME, CPF, EMAIL, CARGO, ENDERECO)
 VALUES ('Fernanda Oliveira Lima', '25487963107', 'fernanda.lima@hotmail.com', 'Suporte Técnico', 'Av. Toledo, 302');
 INSERT INTO USUARIO (SENHA, FUNCIONARIO_ID) 
 VALUES (MD5('2025'), LAST_INSERT_ID());
-*/ 
+
 
 INSERT INTO VENDA (PAGAMENTO, PRODUTO_CODIGO, CLIENTE_ID)
 VALUES
@@ -130,4 +130,4 @@ VALUES
 ('Boleto', 26524,6 ),
 ('Cartão - Crédito', 45324,7),
 ('Pix',78865, 8);
-
+*/  

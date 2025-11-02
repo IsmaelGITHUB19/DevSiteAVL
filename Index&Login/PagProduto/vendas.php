@@ -35,10 +35,10 @@
     <h1 style="text-align: center; margin-top: 30px;">Histórico de vendas</h1>
 
     <div class="text-center mb-4">
-        <a href="adicionar_venda.html" class="btn btn-success btn-lg">
+        <a href="adicionar_venda.php" class="btn btn-success btn-lg">
             Vender
         </a>
-        <a href="produto.php" class="btn btn-success btn-lg">
+        <a href="../painel.html" class="btn btn-success btn-lg">
             Voltar
         </a>
     </div>
@@ -79,13 +79,13 @@ if ($resultado->num_rows > 0) {
              " | Produto: " . $linha['PRODUTO_DESCRICAO'] . " (Código: " . $linha['PRODUTO_CODIGO'] . ", Valor: " . $linha['PRODUTO_VALOR'] . ")" .
              " | Cliente: " . $linha['CLIENTE_NOME'] . " (ID: " . $linha['CLIENTE_ID'] . ")";
            // Formulário de edição
-        echo '<form method="POST" action="Editar/editar_produto.php" style="display:inline;">';
+        echo '<form method="POST" action="Editar/editar_venda.php" style="display:inline;">';
         echo '<input type="hidden" name="venda_id" value="' . $linha['VENDA_ID'] . '">';
         echo '<input type="submit" value="Editar" class="btn btn-primary btn-sm">';
         echo '</form>';
 
         // Formulário de exclusão
-        echo '<form method="POST" action="Delete/delete_banco.php" style="display:inline;">';
+        echo '<form method="POST" action="Delete/delete_banco_venda.php" style="display:inline;">';
         echo '<input type="hidden" name="venda_id" value="' . $linha['VENDA_ID'] . '">';
         echo '<input type="submit" value="Excluir" class="btn btn-danger btn-sm">';
         echo '</form>';
