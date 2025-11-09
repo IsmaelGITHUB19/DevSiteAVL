@@ -25,14 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $user = $result->fetch_assoc();
 
         if ($senha === $user['SENHA']) {
-            // Login OK
             $_SESSION['user_id'] = $user['ID'];
             
             $conn->close();
-            header("Location: painel.html"); // Redireciona para painel.html
+            header("Location: painel.html");
             exit;
         } else {
-            // Senha incorreta
             $_SESSION['erro'] = "Senha incorreta!";
             $conn->close();
             header("Location: login.html");
