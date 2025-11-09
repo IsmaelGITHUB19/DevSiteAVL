@@ -2,58 +2,71 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Avaliações dos Clientes</title>
+    <title>Lista de Avaliações</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
-<h1>Avaliações dos Clientes</h1>
+<h1 class="text-center mt-4">Avaliações dos Clientes</h1>
 
-<a href="adicionar_avaliacao.html">Cadastrar Avaliação</a> |
-<a href="../painel.html">Voltar</a>
-<br><br>
+<div class="text-center mb-4">
+    <a href="adicionar_avalicao.html" class="btn btn-success btn-lg">Adicionar Avaliação</a>
+    <a href="../painel.html" class="btn btn-secondary btn-lg">Voltar</a>
+</div>
 
-<?php
-$conn = new mysqli("localhost", "root", "", "sitedb");
+<div class="container">
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nota</th>
+                <th>Opinião</th>
+                <th>Nome do Cliente</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+        // Conexão com o banco de dados
+        $conn = new mysqli("localhost", "root", "", "sitedb");
+        if ($conn->connect_error) {
+            die("Falha na conexão: " . $conn->connect_error);
+        }
 
-if ($conn->connect_error) {
-    die("Erro ao conectar ao banco de dados.");
-}
+        // Consulta para buscar as avaliações e o nome do cliente
+        $sql = "SELECT A.ID, A.NOTA, A.OPN, A.NOME_CLIENTE 
+                FROM AVALIACAO AS A 
+                ORDER BY A.ID DESC";
+        $resultado = $conn->query($sql);
 
-$sql = "SELECT A.ID, C.NOME AS CLIENTE, A.NOTA, A.OPN
-        FROM AVALIACAO A
-        JOIN CLIENTE C ON A.ID_CLIENTE = C.ID";
-$result = $conn->query($sql);
+        if ($resultado->num_rows > 0) {
+            while ($linha = $resultado->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $linha['ID'] . "</td>";
+                echo "<td>" . $linha['NOTA'] . "</td>";
+                echo "<td>" . $linha['OPN'] . "</td>";
+                echo "<td>" . $linha['NOME_CLIENTE'] . "</td>";
+                echo "<td>
+                        <form method='POST' action='Editar/editar_avaliacao.php' style='display:inline;'>
+                            <input type='hidden' name='id' value='" . $linha['ID'] . "'>
+                            <input type='submit' value='Editar' class='btn btn-primary btn-sm'>
+                        </form>
+                        <form method='POST' action='Delete/delete_banco_avaliacao.php' style='display:inline;'>
+                            <input type='hidden' name='id' value='" . $linha['ID'] . "'>
+                            <input type='submit' value='Excluir' class='btn btn-danger btn-sm'>
+                        </form>
+                      </td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='5' class='text-center'>Nenhuma avaliação encontrada</td></tr>";
+        }
 
-if ($result->num_rows > 0) {
-    echo "<table border='1' cellpadding='5' cellspacing='0'>";
-    echo "<tr>
-            <th>ID</th>
-            <th>Cliente</th>
-            <th>Nota</th>
-            <th>Opinião</th>
-            <th>Ações</th>
-          </tr>";
-
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['ID'] . "</td>";
-        echo "<td>" . $row['CLIENTE'] . "</td>";
-        echo "<td>" . $row['NOTA'] . "</td>";
-        echo "<td>" . $row['OPN'] . "</td>";
-        echo "<td>";
-        echo "<a href='Editar/editar_avaliacao.php?id=" . $row['ID'] . "'>Editar</a> | ";
-        echo "<a href='Delete/delete_avaliacao.php?id=" . $row['ID'] . "'>Excluir</a>";
-        echo "</td>";
-        echo "</tr>";
-    }
-
-    echo "</table>";
-} else {
-    echo "Nenhuma avaliação encontrada.";
-}
-
-$conn->close();
-?>
+        $conn->close();
+        ?>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>

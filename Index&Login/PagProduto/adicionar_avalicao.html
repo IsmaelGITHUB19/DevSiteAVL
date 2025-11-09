@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Avaliação</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<h1 class="text-center mt-4">Adicionar Avaliação</h1>
+
+<div class="container mt-4">
+    <form action="Insert/insert_banco_avaliacao.php" method="POST" class="border p-4 rounded shadow">
+        <div class="form-group">
+            <label>Nota</label>
+            <input type="number" name="nota" class="form-control" required min="0" max="10">
+        </div>
+
+        <div class="form-group">
+            <label>Opinião</label>
+            <input type="text" name="opn" class="form-control" required maxlength="100">
+        </div>
+
+        <div class="form-group">
+            <label>Nome do Cliente</label>
+            <input type="text" name="nome_cliente" class="form-control" required maxlength="50">
+        </div>
+
+        <div class="form-group">
+            <label>ID do Cliente</label>
+            <input type="number" name="id_cliente" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-lg">Cadastrar Avaliação</button>
+        <a href="../avaliacoes.php" class="btn btn-secondary btn-lg">Voltar</a>
+    </form>
+</div>
+
+</body>
+</html>
