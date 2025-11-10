@@ -55,13 +55,13 @@
                 echo '<td>' . htmlspecialchars($linha['ENDERECO']) . '</td>';
                 echo '<td>';
                 
-                // Botão de editar
+                // Formulário de edição 
                 echo '<form method="POST" action="Editar/editar_funcionario.php" style="display:inline-block;">';
                 echo '<input type="hidden" name="id" value="' . $linha['ID'] . '">';
                 echo '<button type="submit" class="btn btn-primary btn-sm">Editar</button>';
                 echo '</form> ';
 
-                // Botão de excluir
+                // Formulário de excluir 
                 echo '<form method="POST" action="Delete/delete_banco_funcionario.php" style="display:inline-block;">';
                 echo '<input type="hidden" name="id" value="' . $linha['ID'] . '">';
                 echo '<button type="submit" class="btn btn-danger btn-sm">Excluir</button>';
