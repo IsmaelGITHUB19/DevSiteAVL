@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,17 +20,15 @@
         </div>
 
         <?php
-        // --- 1. CONEXÃO E CONFIGURAÇÃO ---
         $conn = new mysqli("localhost", "root", "", "sitedb");
         if ($conn->connect_error) {
             die("<div class='alert alert-danger'>Erro interno. Tente novamente mais tarde.</div>");
         }
 
-        // --- 2. CONSULTA ---
+        // --- CONSULTA ---
         $sql = "SELECT ID, NOME, CPF, EMAIL, CARGO, ENDERECO FROM FUNCIONARIO";
         $resultado = $conn->query($sql);
 
-        // --- 3. EXIBIÇÃO ---
         if ($resultado->num_rows > 0) {
             echo '<div class="table-responsive">';
             echo '<table class="table table-striped table-bordered table-hover shadow-sm">';
