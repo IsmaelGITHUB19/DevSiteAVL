@@ -17,7 +17,7 @@
         </div>
 
         <?php
-        // --- 1. CONEXÃO E CONFIGURAÇÃO ---
+
         $conn = new mysqli("localhost", "root", "", "sitedb");
         if ($conn->connect_error) {
             die("<div class='alert alert-danger'>Erro interno. Tente novamente mais tarde.</div>");
