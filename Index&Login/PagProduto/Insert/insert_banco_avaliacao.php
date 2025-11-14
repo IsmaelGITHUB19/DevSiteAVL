@@ -6,19 +6,17 @@ $username   = "root";
 $password   = "";
 $database   = "sitedb";
 
-// Conexão
+
 $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-// Capturar dados do POST
 $nota          = $_POST['nota'];
 $opn           = $_POST['opn'];
 $nome_cliente  = $_POST['nome_cliente'];
 $id_cliente    = $_POST['id_cliente'];
 
-// Insert na tabela AVALIACAO
 $sql = "INSERT INTO AVALIACAO (NOTA, OPN, NOME_CLIENTE, ID_CLIENTE) VALUES (
     '$nota',
     '$opn',
