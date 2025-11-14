@@ -32,8 +32,6 @@
         if ($conn->connect_error) {
             die("Falha na conexão: " . $conn->connect_error);
         }
-
-        // Consulta para buscar as avaliações e o nome do cliente
         $sql = "SELECT A.ID, A.NOTA, A.OPN, A.NOME_CLIENTE 
                 FROM AVALIACAO AS A 
                 ORDER BY A.ID DESC";
