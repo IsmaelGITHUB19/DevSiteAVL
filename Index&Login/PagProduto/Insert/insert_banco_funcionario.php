@@ -11,15 +11,13 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-// Insert Funcionario
 $sql = "INSERT INTO FUNCIONARIO ( NOME, CPF, EMAIL, CARGO, ENDERECO) VALUES (
     '" . $_POST['nome'] . "',
     '" . $_POST['cpf'] . "',
     '" . $_POST['email'] . "',
     '" . $_POST['cargo'] . "',
     '" . $_POST['endereco'] . "'
-)"; // ✅ sem vírgula antes do fechamento
-
+)"; 
 if ($conn->query($sql)) {
     echo "Funcionário cadastrado com sucesso!";
 } else {
