@@ -22,14 +22,12 @@ function conect_banco(){
 }
 
 function insert($conn) {
-    // Insert Produto
     $sql = "INSERT INTO Produto (CODIGO, DESCRICAO, VALOR) VALUES (
         '" . $_POST['codigo'] . "',
         '" . $_POST['descricao'] . "',
         '" . $_POST['valor'] . "'
     )";
 
-    // Executa ambos inserts
     if ($conn->query($sql)) {
         echo "Produto cadastrado com sucesso!";
     } else {
