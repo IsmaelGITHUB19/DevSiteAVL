@@ -6,20 +6,19 @@ $username   = "root";
 $password   = "";
 $database   = "sitedb";
 
-// Conexão
+
 $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-// Captura dos dados enviados pelo formulário
 $id           = $_POST['id'];
 $nota         = $_POST['nota'];
 $opn          = $_POST['opn'];
 $nome_cliente = $_POST['nome_cliente'];
 $id_cliente   = $_POST['id_cliente'];
 
-// Atualização dos dados da avaliação
+
 $sql = "UPDATE AVALIACAO 
         SET NOTA = '$nota', 
             OPN = '$opn', 
