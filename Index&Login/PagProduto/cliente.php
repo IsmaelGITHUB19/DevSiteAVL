@@ -43,10 +43,14 @@
                 echo "<td>" . $linha['CPF'] . "</td>";
                 echo "<td>" . $linha['EMAIL'] . "</td>";
                 echo "<td>
+
                         <form method='POST' action='Editar/editar_cliente.php' style='display:inline;'>
                             <input type='hidden' name='id' value='" . $linha['ID'] . "'>
                             <input type='submit' value='Editar' class='btn btn-primary btn-sm'>
                         </form>
+             
+                        
+
                         <form method='POST' action='Delete/delete_banco_cliente.php' style='display:inline;'>
                             <input type='hidden' name='id' value='" . $linha['ID'] . "'>
                             <input type='submit' value='Excluir' class='btn btn-danger btn-sm'>

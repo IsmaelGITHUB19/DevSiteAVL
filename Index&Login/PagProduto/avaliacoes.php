@@ -49,6 +49,7 @@
                             <input type='hidden' name='id' value='" . $linha['ID'] . "'>
                             <input type='submit' value='Editar' class='btn btn-primary btn-sm'>
                         </form>
+                        
                         <form method='POST' action='Delete/delete_banco_avaliacao.php' style='display:inline;'>
                             <input type='hidden' name='id' value='" . $linha['ID'] . "'>
                             <input type='submit' value='Excluir' class='btn btn-danger btn-sm'>

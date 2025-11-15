@@ -1,5 +1,4 @@
 <?php
-// Conexão direta com o banco
 $conn = new mysqli("localhost", "root", "", "sitedb");
 
 if ($conn->connect_error) {
